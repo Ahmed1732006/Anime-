@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الأنميات اللي شفتها</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+    --bg:#160403;
+    --bg2:#210603;
+    --card:rgba(38,12,9,.72);
+    --card-hover:rgba(54,16,11,.92);
+    --text:#fbf1ec;
+    --muted:#c99a89;
+    --line:rgba(255,140,70,.10);
+    --purple:#ff5a1f;
+    --blue:#ffb020;
+    --flame1:#ff3d1a;
+    --flame2:#ff8a1e;
+    --flame3:#ffcf4d;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    color:var(--text);
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 115%,
+            rgba(255,138,30,.35),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at 12% 8%,
+            rgba(255,61,26,.22),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 90% 12%,
+            rgba(255,176,32,.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(255,90,20,.20),
+            transparent 40%
+        ),
+        linear-gradient(135deg,#0c0201,#1c0603 45%,#160403);
+
+    background-attachment:fixed;
+
+    padding:35px 15px 70px;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.05;
+
+    background-image:
+        linear-gradient(rgba(255,150,80,.5) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,150,80,.5) 1px,transparent 1px);
+
+    background-size:40px 40px;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:38vh;
+    pointer-events:none;
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(255,80,20,.35),
+            rgba(255,120,20,.12) 40%,
+            transparent 80%
+        );
+
+    filter:blur(6px);
+    z-index:0;
+
+    animation:flameFlicker 4s ease-in-out infinite;
+}
+
+@keyframes flameFlicker{
+    0%,100%{ opacity:1; filter:blur(6px); }
+    25%{ opacity:.85; filter:blur(8px); }
+    50%{ opacity:1; filter:blur(5px); }
+    75%{ opacity:.9; filter:blur(7px); }
+}
+
+/* =========================
+   EMBERS
+========================= */
+
+.embers{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.ember{
+    position:absolute;
+    bottom:-10px;
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ffe9b0 0%,
+            #ffb020 45%,
+            #ff5a1f 75%,
+            transparent 100%
+        );
+
+    box-shadow:0 0 8px rgba(255,140,40,.8);
+
+    animation-name:emberRise;
+    animation-timing-function:ease-in;
+    animation-iteration-count:infinite;
+}
+
+@keyframes emberRise{
+    0%{
+        transform:translate(0,0) scale(1);
+        opacity:0;
+    }
+    10%{
+        opacity:1;
+    }
+    100%{
+        transform:translate(var(--drift,20px),-105vh) scale(.3);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.container{
+    width:100%;
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:7px 14px;
+    margin-bottom:15px;
+
+    border:1px solid rgba(255,120,40,.35);
+    border-radius:50px;
+
+    background:rgba(255,90,20,.10);
+
+    color:#ffbb7a;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.badge::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#ff8a1e;
+    box-shadow:0 0 12px #ff8a1e;
+}
+
+h1{
+    font-family:"Lalezar","Segoe UI",Tahoma,Arial,sans-serif;
+    font-size:clamp(34px,7.5vw,64px);
+    font-weight:900;
+    line-height:1.2;
+
+    background:
+        linear-gradient(
+            120deg,
+            #fff6ec 10%,
+            #ffcf4d 45%,
+            #ff5a1f 80%,
+            #ff3d1a 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+
+    letter-spacing:0;
+
+    animation:flameText 3.5s ease-in-out infinite;
+    background-size:200% 200%;
+}
+
+@keyframes flameText{
+    0%,100%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+}
+
+.subtitle{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+.header-line{
+    width:110px;
+    height:3px;
+    margin:20px auto 0;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--purple),
+            var(--blue),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(255,120,30,.45);
+}
+
+/* =========================
+   LIST
+========================= */
+
+.anime-list{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.anime{
+    position:relative;
+
+    display:grid;
+    grid-template-columns:62px 82px 1fr;
+
+    align-items:center;
+    gap:17px;
+
+    min-height:92px;
+    padding:12px 17px;
+
+    border:1px solid var(--line);
+    border-radius:18px;
+
+    background:var(--card);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    overflow:hidden;
+
+    opacity:0;
+    animation:cardIn .6s ease forwards;
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(18px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.anime::before{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+
+    width:3px;
+
+    background:var(--accent);
+
+    opacity:.75;
+}
+
+.anime::after{
+    content:"";
+    position:absolute;
+    width:100px;
+    height:100px;
+
+    right:-50px;
+    top:-50px;
+
+    background:var(--accent);
+    filter:blur(50px);
+
+    opacity:.05;
+    pointer-events:none;
+
+    animation:emberPulse 3s ease-in-out infinite;
+}
+
+@keyframes emberPulse{
+    0%,100%{ opacity:.05; }
+    50%{ opacity:.12; }
+}
+
+.anime:hover{
+    transform:translateY(-3px) scale(1.008);
+
+    background:var(--card-hover);
+
+    border-color:color-mix(in srgb,var(--accent) 55%,transparent);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.35),
+        0 0 30px color-mix(
+            in srgb,
+            var(--accent) 25%,
+            transparent
+        ),
+        inset 0 0 20px color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+}
+
+/* =========================
+   NUMBER
+========================= */
+
+.number{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            color-mix(in srgb,var(--accent) 18%,transparent),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 30%,
+            transparent
+        );
+
+    color:var(--accent);
+
+    font-size:21px;
+    font-weight:900;
+
+    text-shadow:
+        0 0 10px color-mix(in srgb,var(--accent) 60%,transparent),
+        0 0 20px color-mix(in srgb,var(--accent) 30%,transparent);
+
+    box-shadow:
+        inset 0 0 15px
+        color-mix(
+            in srgb,
+            var(--accent) 8%,
+            transparent
+        );
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.poster{
+    width:82px;
+    height:66px;
+
+    border-radius:13px;
+
+    overflow:hidden;
+
+    border:1px solid
+        color-mix(
+            in srgb,
+            var(--accent) 40%,
+            transparent
+        );
+
+    background:#111421;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.28);
+
+    position:relative;
+}
+
+.poster img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.anime:hover .poster img{
+    transform:scale(1.07);
+    filter:saturate(1.12);
+}
+
+/* =========================
+   TEXT
+========================= */
+
+.info{
+    min-width:0;
+}
+
+.arabic{
+    color:var(--accent);
+
+    font-size:19px;
+    font-weight:800;
+
+    line-height:1.45;
+
+    margin-bottom:3px;
+
+    white-space:normal;
+}
+
+.english{
+    color:#a6a9b9;
+
+    direction:ltr;
+    text-align:right;
+
+    font-size:13px;
+    font-weight:500;
+
+    line-height:1.4;
+
+    overflow-wrap:anywhere;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    text-align:center;
+
+    margin-top:28px;
+
+    color:#686c7e;
+
+    font-size:12px;
+}
+
+.footer strong{
+    color:#ff9a4d;
+}
+
+/* =========================
+   PDF BUTTON
+========================= */
+
+.download-area{
+    display:flex;
+    justify-content:center;
+
+    margin-top:30px;
+}
+
+.download-btn{
+    border:0;
+    outline:0;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    min-width:230px;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-family:inherit;
+    font-size:14px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff8a1e,
+            #ff3d1a
+        );
+
+    box-shadow:
+        0 10px 30px rgba(255,80,20,.32);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        opacity .2s ease;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(255,80,20,.45);
+}
+
+.download-btn:active{
+    transform:scale(.97);
+}
+
+.download-btn:disabled{
+    opacity:.65;
+    cursor:wait;
+}
+
+.download-icon{
+    font-size:18px;
+}
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        animation-duration:.01ms !important;
+        animation-iteration-count:1 !important;
+    }
+
+    .anime{
+        opacity:1;
+    }
+
+    .embers{
+        display:none;
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    body{
+        padding:22px 10px 50px;
+    }
+
+    .header{
+        margin-bottom:25px;
+    }
+
+    h1{
+        font-size:35px;
+    }
+
+    .subtitle{
+        font-size:12px;
+    }
+
+    .anime{
+        grid-template-columns:42px 65px 1fr;
+        gap:11px;
+
+        min-height:78px;
+
+        padding:9px 10px;
+
+        border-radius:15px;
+    }
+
+    .number{
+        width:38px;
+        height:38px;
+
+        border-radius:11px;
+
+        font-size:16px;
+    }
+
+    .poster{
+        width:65px;
+        height:55px;
+
+        border-radius:10px;
+    }
+
+    .arabic{
+        font-size:15px;
+    }
+
+    .english{
+        font-size:11px;
+    }
+
+    .download-btn{
+        width:100%;
+        max-width:300px;
+    }
+}
+
+/* =========================
+   PRINT
+========================= */
+
+@media print{
+
+    body{
+        background:#160403 !important;
+        padding:15px;
+    }
+
+    body::after,
+    .embers{
+        display:none !important;
+    }
+
+    .anime{
+        opacity:1 !important;
+        animation:none !important;
+    }
+
+    .download-area{
+        display:none !important;
+    }
+
+    .anime{
+        break-inside:avoid;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="embers" id="embers"></div>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="badge">
+            قائمة الأنميات الشخصية
+        </div>
+
+        <h1>
+            الأنميات اللي شفتها
+        </h1>
+
+        <div class="subtitle">
+            My Anime List
+        </div>
+
+        <div class="header-line"></div>
+
+    </header>
+
+
+    <!-- LIST -->
+    <main class="anime-list" id="animeList"></main>
+
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <strong>24</strong>
+        أنمي في القائمة
+        •
+        من المشاهدة إلى المفضلة
+    </div>
+
+
+    <!-- DOWNLOAD -->
+    <div class="download-area">
+
+        <button
+            class="download-btn"
+            id="downloadBtn"
+            type="button"
+        >
+            <span class="download-icon">↓</span>
+            تحميل الصفحة PDF
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/*
+=========================================
+   قائمة الأنميات
+=========================================
+*/
+
+const animeList = [
+
+    {
+        ar:"مذكرة الموت",
+        en:"Death Note",
+        color:"#ef476f"
+    },
+
+    {
+        ar:"بلو لوك",
+        en:"Blue Lock",
+        color:"#3b82f6"
+    },
+
+    {
+        ar:"المستوى الفردي",
+        en:"Solo Leveling",
+        color:"#a855f7"
+    },
+
+    {
+        ar:"هجوم العمالقة",
+        en:"Attack on Titan",
+        color:"#ef4444"
+    },
+
+    {
+        ar:"قاتل الشياطين",
+        en:"Demon Slayer: Kimetsu no Yaiba",
+        color:"#22c55e"
+    },
+
+    {
+        ar:"الرجل المنشار",
+        en:"Chainsaw Man",
+        color:"#f97316"
+    },
+
+    {
+        ar:"جوجوتسو كايسن",
+        en:"Jujutsu Kaisen",
+        color:"#8b5cf6"
+    },
+
+    {
+        ar:"أكاديمية بطلي",
+        en:"My Hero Academia",
+        color:"#10b981"
+    },
+
+    {
+        ar:"لورد العوامض",
+        en:"Lord of Mysteries",
+        color:"#c026d3"
+    },
+
+    {
+        ar:"فوشي / إلى أبد الآبدين",
+        en:"To Your Eternity",
+        color:"#38bdf8"
+    },
+
+    {
+        ar:"ماشيل",
+        en:"Mashle",
+        color:"#c084fc"
+    },
+
+    {
+        ar:"دان دادان",
+        en:"Dandadan",
+        color:"#ec4899"
+    },
+
+    {
+        ar:"كايجو رقم ٨",
+        en:"Kaiju No. 8",
+        color:"#f59e0b"
+    },
+
+    {
+        ar:"بروز الظل",
+        en:"The Eminence in Shadow",
+        color:"#7c3aed"
+    },
+
+    {
+        ar:"جنة الجحيم",
+        en:"Hell's Paradise",
+        color:"#f43f5e"
+    },
+
+    {
+        ar:"هايكيو!!",
+        en:"Haikyuu!!",
+        color:"#fb923c"
+    },
+
+    {
+        ar:"أكاديمية ملك الشياطين",
+        en:"The Misfit of Demon King Academy",
+        color:"#dc2626"
+    },
+
+    {
+        ar:"فرييرن: ما بعد نهاية الرحلة",
+        en:"Sousou no Frieren",
+        color:"#14b8a6"
+    },
+
+    {
+        ar:"ون بانش مان",
+        en:"One Punch Man",
+        color:"#eab308"
+    },
+
+    {
+        ar:"عائلة الجواسيس",
+        en:"Spy × Family",
+        color:"#f472b6"
+    },
+
+    {
+        ar:"ملك الحفّارين",
+        en:"Tomb Raider King",
+        color:"#f59e0b"
+    },
+
+    {
+        ar:"شيكيموري ليست مجرد فتاة لطيفة",
+        en:"Shikimori's Not Just a Cutie",
+        color:"#fb7185"
+    },
+
+    {
+        ar:"ري:زيرو - بدء الحياة في عالم آخر",
+        en:"Re:ZERO -Starting Life in Another World-",
+        color:"#60a5fa"
+    },
+
+    {
+        ar:"أيام ساكاموتو (غير مكتمل)",
+        en:"Sakamoto Days",
+        color:"#6366f1"
+    }
+
+];
+
+
+/*
+=========================================
+   إنشاء القائمة
+=========================================
+*/
+
+const list = document.getElementById("animeList");
+
+animeList.forEach((anime,index)=>{
+
+    const number = index + 1;
+
+    const item = document.createElement("article");
+
+    item.className = "anime";
+
+    item.style.setProperty(
+        "--accent",
+        anime.color
+    );
+
+    item.style.animationDelay = (index * 0.06) + "s";
+
+    item.innerHTML = `
+
+        <div class="number">
+            ${number}
+        </div>
+
+        <div class="poster">
+
+            <img
+                src="${number}.gif"
+                alt="${anime.en}"
+                loading="lazy"
+                onerror="this.style.display='none'"
+            >
+
+        </div>
+
+        <div class="info">
+
+            <div class="arabic">
+                ${anime.ar}
+            </div>
+
+            <div class="english">
+                ${anime.en}
+            </div>
+
+        </div>
+
+    `;
+
+    list.appendChild(item);
+
+});
+
+
+/*
+=========================================
+   جسيمات الجمر (Embers)
+=========================================
+*/
+
+const embersContainer =
+    document.getElementById("embers");
+
+const EMBER_COUNT = 26;
+
+for(let i = 0; i < EMBER_COUNT; i++){
+
+    const ember = document.createElement("span");
+
+    ember.className = "ember";
+
+    const size = Math.random() * 4 + 2;
+    const left = Math.random() * 100;
+    const duration = Math.random() * 6 + 6;
+    const delay = Math.random() * 8;
+    const drift = (Math.random() * 80 - 40) + "px";
+
+    ember.style.width = size + "px";
+    ember.style.height = size + "px";
+    ember.style.left = left + "%";
+    ember.style.setProperty("--drift", drift);
+    ember.style.animationDuration = duration + "s";
+    ember.style.animationDelay = delay + "s";
+
+    embersContainer.appendChild(ember);
+
+}
+
+
+/*
+=========================================
+   إنشاء PDF بدون إنترنت
+=========================================
+
+   ملاحظة:
+   لا نستخدم html2canvas
+   ولا jsPDF
+   ولا أي مكتبة خارجية.
+
+   يتم إنشاء PDF مباشرة باستخدام
+   بيانات الصفحة.
+=========================================
+*/
+
+const downloadBtn =
+    document.getElementById("downloadBtn");
+
+
+downloadBtn.addEventListener(
+    "click",
+    function(){
+
+        const oldText =
+            downloadBtn.innerHTML;
+
+        downloadBtn.disabled = true;
+
+        downloadBtn.innerHTML =
+            '<span class="download-icon">⏳</span> جاري تجهيز PDF...';
+
+
+        try{
+
+            /*
+             * نستخدم نافذة الطباعة الخاصة بالمتصفح
+             * والتي تسمح للمستخدم باختيار
+             * Save as PDF.
+             *
+             * هذه الطريقة تعمل بدون إنترنت
+             * وبدون أي مكتبات خارجية.
+             */
+
+            window.print();
+
+        }
+
+        catch(error){
+
+            alert(
+                "تعذر فتح نافذة حفظ PDF."
+            );
+
+            console.error(error);
+
+        }
+
+
+        setTimeout(()=>{
+
+            downloadBtn.disabled = false;
+
+            downloadBtn.innerHTML = oldText;
+
+        },1000);
+
+    }
+);
+
+</script>
+
+</body>
+</html>
